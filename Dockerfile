@@ -1,12 +1,9 @@
-FROM ubuntu:latest
+FROM openjdk:alpine
 LABEL maintainer="WeiRuofeng <weiruofeng@ruofengx.cn>"
 
 COPY startup.sh /etc/periodic/daily
 
 RUN set -ex \
-	&& mkdir /mnt/nfs \
-	&& apt update \
-    && apt install openjdk-17-jre-headless -y \
-	&& chmod +x /etc/periodic/daily/startup.sh
+	&& mkdir /mnt/nfs
 
 ENTRYPOINT [ "crond", "-f" ]
