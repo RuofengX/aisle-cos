@@ -1,0 +1,15 @@
+version: '3'
+services:
+  cos-migration:
+    build: .
+      - type: volume
+        source: cfs-jbe9pl03
+        target: /mnt/nfs
+        volume:
+          nocopy: true
+volumes:
+  cfs-jbe9pl03:
+    driver_opts:
+      type: "nfs"
+      o: "addr=10.206.0.15,vers=3,nolock,proto=tcp,noresvport"
+      device: ":/u4pmuefx"
