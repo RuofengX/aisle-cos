@@ -6,7 +6,7 @@ COPY startup.sh /etc/periodic/daily
 RUN set -ex \
 	&& mkdir /mnt/nfs \
 	&& apt update \
-    && apt install openjdk-17-jre-headless \
+    && apt install openjdk-17-jre-headless -y \
 	&& chmod +x /etc/periodic/daily
 
 ENTRYPOINT [ "crond", "-f" ]
