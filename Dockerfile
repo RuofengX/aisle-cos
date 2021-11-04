@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM ubuntu:latest
 LABEL maintainer="WeiRuofeng <weiruofeng@ruofengx.cn>"
 
 COPY startup.sh /etc/periodic/daily
@@ -8,6 +8,7 @@ COPY startup.sh /etc/periodic/daily
 
 RUN set -ex \
 	&& mkdir /mnt/nfs \
-	&& apk add --no-cache openjdk8
+	&& apk add --no-cache openjdk8\
+	&& chmod +x /etc/periodic/daily
 
 ENTRYPOINT [ "crond", "-f" ]

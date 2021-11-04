@@ -1,7 +1,8 @@
 version: '3'
 services:
   cos-migration:
-    build: .
+    image: 1ris/aisle-cos
+    volumes:
       - type: volume
         source: cfs-jbe9pl03
         target: /mnt/nfs
@@ -11,5 +12,5 @@ volumes:
   cfs-jbe9pl03:
     driver_opts:
       type: "nfs"
-      o: "addr=10.206.0.15,vers=3,nolock,proto=tcp,noresvport"
+      o: "addr=10.206.0.15,nolock,soft,rw"
       device: ":/u4pmuefx"

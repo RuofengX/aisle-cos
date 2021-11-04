@@ -1,2 +1,2 @@
 #!/bin/sh
-/mnt/nfs/start_migrate.sh
+/mnt/nfs/opt/cos_migrate_tool_v5-1.4.6/start_migrate.sh
