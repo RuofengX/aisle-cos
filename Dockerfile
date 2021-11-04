@@ -7,6 +7,6 @@ RUN set -ex \
 	&& mkdir /mnt/nfs \
 	&& apt update \
     && apt install openjdk-17-jre-headless -y \
-	&& chmod +x /etc/periodic/daily
+	&& chmod +x /etc/periodic/daily/startup.sh
 
 ENTRYPOINT [ "crond", "-f" ]
