@@ -1,11 +1,16 @@
 FROM openjdk:alpine
 LABEL maintainer="WeiRuofeng <weiruofeng@ruofengx.cn>"
 
+ENV TZ=Asia/Shanghai
+
 COPY startup.sh /etc/periodic/daily/
 
 RUN set -ex \nux-x86-64.so.2 \
 	## install dependence
+	&& sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories \
 	&& apk add -U \
+	## add timezone support
+	&& apk add tzdata \
 	## create cron job
 	&& mv /etc/periodic/daily/startup.sh /etc/periodic/daily/startup \
 	&& chmod +x /etc/periodic/daily/startup \
@@ -14,5 +19,4 @@ RUN set -ex \nux-x86-64.so.2 \
 	## mount related jobs
 	&& mkdir /mnt/nfs
 	
-ENV TZ=Asia/Shanghai
 ENTRYPOINT [ "crond", "-f" ]

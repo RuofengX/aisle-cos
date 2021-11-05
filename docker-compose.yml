@@ -1,7 +1,7 @@
 version: '3'
 services:
   aisle-cos:
-    build: .
+    image: 1ris/aisle-cos
     volumes:
       - type: volume
         source: cfs-jbe9pl03
