@@ -13,5 +13,6 @@ RUN set -ex \nux-x86-64.so.2 \
 	&& apk add libc6-compat \
 	## mount related jobs
 	&& mkdir /mnt/nfs
-
+	
+ENV TZ=Asia/Shanghai
 ENTRYPOINT [ "crond", "-f" ]

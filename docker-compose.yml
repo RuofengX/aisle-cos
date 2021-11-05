@@ -14,6 +14,3 @@ volumes:
       type: "nfs"
       o: "addr=10.206.0.15,nolock,soft,rw"
       device: ":/u4pmuefx"
-
-environment:
-  - TZ=Asia/Shanghai
