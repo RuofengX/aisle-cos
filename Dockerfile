@@ -6,10 +6,6 @@ COPY startup.sh /etc/periodic/daily/
 RUN set -ex \nux-x86-64.so.2 \
 	## install dependence
 	&& apk add -U \
-	## add timezone support
-	&& apk add  tzdata\
-	&& cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-	&& apk del tzdata \
 	## create cron job
 	&& mv /etc/periodic/daily/startup.sh /etc/periodic/daily/startup \
 	&& chmod +x /etc/periodic/daily/startup \
