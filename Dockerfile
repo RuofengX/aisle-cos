@@ -5,7 +5,7 @@ ENV TZ=Asia/Shanghai
 
 COPY startup.sh /etc/periodic/daily/
 
-RUN set -ex \nux-x86-64.so.2 \
+RUN set -ex \
 	## install dependence
 	&& sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories \
 	&& apk add -U \
