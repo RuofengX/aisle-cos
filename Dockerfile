@@ -1,4 +1,4 @@
-FROM openjdk:alpine
+FROM openjdk:17-alpine
 LABEL maintainer="WeiRuofeng <weiruofeng@ruofengx.cn>"
 
 ENV TZ=Asia/Shanghai
